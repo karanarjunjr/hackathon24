@@ -180,6 +180,10 @@ def doc2string(jd_paths):
         jd_str.append(string)
     return jd_str
 
+def jdStr(context):
+    jd_str.append(context)
+    return jd_str
+
 stop_words = set(stopwords.words('english'))
 ps = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
@@ -194,6 +198,8 @@ def preprocess(string_list):
       final_str_list.append(words)
     return final_str_list
 
+resume_strings=pdf2string(context)
+jd_strings=jdStr(context)
 resume_strings=preprocess(resume_strings)
 jd_strings=preprocess(jd_strings)
 
@@ -292,7 +298,7 @@ def process_input():
         return jsonify({'error': 'Missing required keys in JSON data'}), 400
 
     # Accessing the values from the JSON data
-    context = data['context']
+    global context = data['context']
     category = data['category']
     threshold = data['threshold']
     num_matches = data['numberOfMatches']
@@ -325,4 +331,4 @@ def process_input():
     return jsonify(response_data), 200
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True,port=5000)
