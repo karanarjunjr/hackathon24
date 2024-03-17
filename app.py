@@ -198,8 +198,8 @@ def preprocess(string_list):
       final_str_list.append(words)
     return final_str_list
 
-resume_strings=pdf2string(context)
-jd_strings=jdStr(context)
+# resume_strings=pdf2string(context)
+# jd_strings=jdStr(context)
 resume_strings=preprocess(resume_strings)
 jd_strings=preprocess(jd_strings)
 
@@ -298,7 +298,7 @@ def process_input():
         return jsonify({'error': 'Missing required keys in JSON data'}), 400
 
     # Accessing the values from the JSON data
-    global context = data['context']
+    context = data['context']
     category = data['category']
     threshold = data['threshold']
     num_matches = data['numberOfMatches']
