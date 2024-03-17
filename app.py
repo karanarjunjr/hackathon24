@@ -46,7 +46,7 @@ def actual(context,
     ## Code Begins
     # defining resume and jd, using string for now, to be replaced with file read functional
     
-        folder_path ="C:\Arjun\Azalea\home"
+        folder_path = input_path
         no_of_matches = num_matches
         # threshold = threshold
 
@@ -334,3 +334,6 @@ def process_input():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True,port=5000)
+
+
+
