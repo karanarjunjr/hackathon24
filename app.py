@@ -275,6 +275,11 @@ for idx in range(resume_embeddings.shape[0]):
 average_cosine_similarity = np.mean(scores)
 print("Average Cosine Similarity:", average_cosine_similarity)
 
+@app.route('/', methods=['GET'])
+def hello_world():
+    message = {'message': 'Hello, World!'}
+    return jsonify(message)
+
 
 @app.route('/api/process', methods=['POST'])
 def process_input():
